@@ -1,0 +1,67 @@
+# quiz.kv
+
+#:kivy 2.0.0
+
+<WelcomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Welcome to Zux Quiz App"
+            font_size: 24
+
+        Button:
+            text: "Start Quiz"
+            size_hint: None, None
+            on_press: root.start_quiz()
+
+<QuizScreen>:
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            id: question_label
+            text: ""
+
+        GridLayout:
+            id: options_layout
+            cols: 2
+
+        Button:
+            text: "Next Question"
+            on_press: root.next_question()
+
+        Label:
+            id: score_label
+            text: "Score: 0"
+            size_hint_y: None
+            height: 44
+
+        Label:
+            id: progress_label
+            text: "Question 1 of 3"
+            size_hint_y: None
+            height: 44
+
+        Label:
+            id: timer_label
+            text: "Time Left: 10"
+            size_hint_y: None
+            height: 44
+
+        Label:
+            id: feedback_label
+            text: ""
+            size_hint_y: None
+            height: 44
+
+        Button:
+            text: "Main Menu"
+            on_press: root.goto_menu()
+
+        Button:
+            text: "Restart Quiz"
+            on_press: root.restart_quiz()
+            disabled: True
